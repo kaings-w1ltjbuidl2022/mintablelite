@@ -11,7 +11,7 @@ function getEnv() {
 export function getConfigs() {
   getEnv();
 
-  const firebaseConfig = {
+  const firebase = {
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     projectId: process.env.projectId,
@@ -20,7 +20,14 @@ export function getConfigs() {
     appId: process.env.appId,
   };
 
+  const infura = {
+    apiKey: process.env.infuraApiKey,
+    // ethereum: 'homestead', // for testnet, change the value to 'goerli'
+    ethereum: "goerli",
+  };
+
   return {
-    firebaseConfig,
+    firebase,
+    infura,
   };
 }

@@ -3,7 +3,13 @@ import { UserRepository } from "./firestore/user";
 import { NftRepository } from "./firestore/nft";
 import { MarketplaceRepository } from "./firestore/marketplace";
 
-export function initRepositories(container: Map<string, any>) {
+export type Repositories = {
+  UserRepository: UserRepository;
+  NftRepository: NftRepository;
+  MarketplaceRepository: MarketplaceRepository;
+};
+
+export function initRepositories(container: Map<string, any>): Repositories {
   const db = container.get("db");
 
   const userRepository = new UserRepository(collection(db, "users"));
